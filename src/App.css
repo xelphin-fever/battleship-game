@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*TITLE*/
+.title-div{
+  width: 100%;
+}
+.title-div h1{
+  width: fit-content;
+  font-size: 80px;
+  margin: 20px auto;
+  color: rgb(95, 104, 102);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/*CHOOSE BOARD*/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/*BOARDS*/
+.game-boards{
   display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.board{
+  width: 500px;
+  height: 500px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 2px solid black;
+}
+
+.board-square{
+  width: 10%;
+  height: 10%;
+  background-color: rgb(173, 204, 197);
+  border: 1px solid rgb(95, 104, 102);
+}
+.display-hover:hover{
+  background-color: rgb(105, 150, 141);
+}
+.board-square-miss{
+  background-color: rgb(143, 155, 153);
+}
+.board-square-hit{
+  background-color: rgb(150, 118, 116);
+}
+.square-isShip{
+  background-color: rgb(115, 156, 148);
+}
+
+
+.board-basic-square-active{
+  background-color: rgb(80, 112, 105);
+}
+
+/*SCORE*/
+.game-scores{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.score{
+  margin: 50px 20px;
+  display:flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(95, 104, 102);
+  padding: 15px 30px;
+  border: 2px solid rgb(95, 104, 102);
+  width: fit-content;
+}
+.score h2{
+  width: fit-content;
+  align-self: center;
+  font-size: 50px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.score h3{
+  width: fit-content;
+  font-size: 25px;
 }
