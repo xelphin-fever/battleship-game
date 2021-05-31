@@ -85,7 +85,7 @@ const ChooseBoard = (props) => {
           }
       </div>
       <div>
-        <button onClick = {() => setOnHor(!onHor)}>Rotate Ship</button>
+        <button className = "button" onClick = {() => setOnHor(!onHor)}>Rotate Ship</button>
       </div>
     </div>
   );

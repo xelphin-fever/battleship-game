@@ -11,6 +11,7 @@ const Game = (props) => {
   const [computerBoard, setComputerBoard] = useState(new Array(100).fill(-1));
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [winner, setWinner] = useState("");
   
 
   useEffect(() => {
@@ -66,7 +67,8 @@ const Game = (props) => {
     if (hasPlayerLost === true){
       console.log('Player ',playerJustHit,' has lost')
       setGameOver(true);
-      props.finish(currentPlayer);
+      setWinner(currentPlayer === 0 ? 'You' : 'Computer')
+      
     }
     function wait() {
       if (currentPlayer === 1 ){
@@ -79,15 +81,24 @@ const Game = (props) => {
 
 
   return (
-    <div className="game">
-      <div className="game-boards">
-        <Board hitBoard ={humanBoard} sendAttack={sendAttack} player="0"  gameBoard={human.getBoard().getGameBoard()}/>
-        <Board hitBoard ={computerBoard} sendAttack={sendAttack} player="1" gameBoard={human.getBoard().getGameBoard()}/>
-      </div>
-      <div className="game-scores">
-        <Score playerIndex={"0"} opp = {computer}/>
-        <Score playerIndex={"1"} opp = {human}/>
-      </div>
+    <div>
+      {
+        gameOver === false
+          ? <div className="game">  
+              <div className="game-boards">
+                <Board hitBoard ={humanBoard} sendAttack={sendAttack} player="0"  gameBoard={human.getBoard().getGameBoard()}/>
+                <Board hitBoard ={computerBoard} sendAttack={sendAttack} player="1" gameBoard={human.getBoard().getGameBoard()}/>
+              </div>
+              <div className="game-scores">
+                <Score playerIndex={"0"} opp = {computer}/>
+                <Score playerIndex={"1"} opp = {human}/>
+              </div>
+            </div>
+          : <div className="winner-banner">
+              <h1>The Winner Is <span>{winner}</span> </h1>
+              <button className="button" onClick={() => props.finish()}>Play Again</button>
+            </div>
+      }
     </div>
   );
 }

@@ -4,10 +4,8 @@ import ChooseBoard from './components/ChooseBoard';
 import './App.css';
 
 function App() {
-  const shipSizes = [3,2,2];
-  const [playerShipArrays, setPlayerShipArray] = useState([
-    [96,97], [88,89]
-  ]);
+  const shipSizes = [5,4,4,3,3,2,2,2];
+  const [playerShipArrays, setPlayerShipArray] = useState([]);
 
   const [gameMode, setGameMode] = useState(false)
 
@@ -18,12 +16,8 @@ function App() {
     setGameMode(true);
   }
 
-  const displayWinner = (winner) => {
-    if (winner === 0){
-      alert('human has won');
-    } else {
-      alert('computer has won');
-    }
+  const restart = () => {
+    setGameMode(false);
   }
 
   return (
@@ -35,7 +29,7 @@ function App() {
         {
           gameMode === false 
             ? <ChooseBoard shipSizes={shipSizes} finished = {playerFinishedChoosing} />
-            : <Game playerShips ={playerShipArrays} shipSizes={shipSizes} finish={displayWinner}/>
+            : <Game playerShips ={playerShipArrays} shipSizes={shipSizes} finish={restart}/>
         }
       </div>
     </div>

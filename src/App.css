@@ -17,6 +17,26 @@
 }
 
 /*CHOOSE BOARD*/
+.choose-board{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+.button{
+  margin-top: 20px;
+  font-size: 35px;
+  padding: 5px 10px;
+  color: rgb(95, 104, 102);
+  border: 2px solid rgb(95, 104, 102);
+  transition: 0.15s all linear;
+  box-shadow: 10px 10px rgb(220, 233, 230);
+}
+.button:hover{
+  transform: scale(0.98) translate(3px,3px);
+  box-shadow: 7px 7px rgb(220, 233, 230);
+}
 
 
 /*BOARDS*/
@@ -85,4 +105,35 @@
 .score h3{
   width: fit-content;
   font-size: 25px;
+}
+
+
+
+.winner-banner{
+  background-color: rgb(200, 230, 223);
+  border: 2px solid rgb(95, 104, 102);
+  color: rgb(109, 158, 147);
+  width: fit-content;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  margin: 90px auto;
+  align-items: center;
+  box-shadow: 20px 20px rgb(220, 233, 230);
+  transition: 0.15s all linear;
+}
+.winner-banner:hover{
+  transform: scale(0.98) translate(8px,8px);
+  box-shadow: 12px 12px rgb(220, 233, 230);
+}
+.winner-banner h1{
+  font-size: 90px;
+  text-align: center;
+}
+.winner-banner button{
+  width: fit-content;
+  box-shadow: 10px 10px rgb(214, 243, 236);
+}
+.winner-banner button:hover{
+  box-shadow: 7px 7px rgb(214, 243, 236);
 }
